@@ -4,40 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Tip Calculator</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-    <form id="tip-calculator">
+    <form id="tip-calculator" onsubmit="calculateTip(); return false">
         <h1>Tip Calculator</h1>
-        <p>How much was the bill?</p>
-        <input id="bill-amount" type="text" placeholder="Bill Amount" required>
-        
-        <p>How was your service?</p>
-        <select id="service-quality" required>
-            <option disabled selected value="">--Choose an Option--</option>
-            <option value=".25">Excellent - 25%</option>
-            <option value=".15">Good - 15%</option>
-            <option value=".10">OK - 10%</option>
-            <option value=".5">Mediocre - 5%</option>
-            <option value=".01">Awful - 1%</option>
-        </select>
-        
-        <p> How many people are sharing the bill?</p>
-        <input id="people-amount" type="text" placeholder="Number of people" required>
-        
-        <button type="button" id="calculate-button" onclick="calculateTip()">Calculate</button>
-        
-        <div id="total-tip">
-            <p>€<span id="tip">0.0</span><span id="each"> each</span></p>
+        <label>How much was the bill?
+            <input name="billAmount" type="number" min="0" step="0.01" placeholder="Bill Amount in €" required>
+        </label>
+
+        <label>
+            How was your service?
+            <select name="serviceQuality" required>
+                <option disabled selected value="">--Choose an Option--</option>
+                <option value="0.25">Excellent - 25%</option>
+                <option value="0.15">Good - 15%</option>
+                <option value="0.10">OK - 10%</option>
+                <option value="0.05">Mediocre - 5%</option>
+                <option value="0.01">Awful - 1%</option>
+            </select>
+        </label>
+
+        <label>
+            How many people are sharing the bill?
+            <input name="numOfPeople" type="number" min="0" placeholder="Number of people" required>
+        </label>
+
+        <button type="submit">Calculate</button>
+
+        <div id="total-tip" class="hidden">
+            <p>€<span id="tip">0.0</span> each</p>
         </div>
-        
+
     </form>
 
-    <script type="text/javascript" src="calculate.js"></script>
+    <script src="calculate.js"></script>
 </body>
 
 </html>
