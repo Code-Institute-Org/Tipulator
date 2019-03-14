@@ -16,8 +16,9 @@ function calculateTip() {
     //    it also triggers the validation bubbles on the screen. Nice.
     //    Using this approach circumvents the need for additional boolean checks in the JS code
     //    that will confuse and/or scare off workshop attendees.
-
-    //  To keep the code length to a minimum, I'll only include isNAN input checks in the model solution. 
+    
+    //  This will be the student version
+    //  To keep the code length to a minimum, I'll only include isNAN input checks in a model solution. 
 
     if (form.reportValidity() == true) {
         //get the form values
